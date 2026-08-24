@@ -1,0 +1,6 @@
+actions-runner/
+myenv/
+__pycache__/
+*.pyc
+.env
+myenv
