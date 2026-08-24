@@ -8,7 +8,9 @@ RUN pip install --no-cache-dir --user -r requirements.txt
 # ---- Stage 2: Final minimal image ----
 FROM python:3.12-slim
 
-# Create non-root user (security best practice)
+# Apply latest security patches (fixes util-linux CVEs etc.)
+RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
+
 RUN useradd -m appuser
 WORKDIR /app
 
